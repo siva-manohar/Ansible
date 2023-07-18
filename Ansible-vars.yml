@@ -1,0 +1,27 @@
+---
+- name: sampleplay
+  hosts: all
+  become: true
+  become_method: sudo
+  vars:
+   name: siva
+   lastname: chaithanya
+  tasks:
+    - name: display variables
+      debug: 
+        msg="{{ name }} {{ lastname }}"
+- name: sampleplay-2
+  hosts: all
+  become: true
+  become_method: sudo
+  vars:
+   name:
+     - siva                           # 0
+     - mahesh                         # 1
+     - aparna                         # 2
+     - sridivya                       # 3
+   lastname: chaithanya
+  tasks:
+    - name: display variables
+      debug: 
+        msg="{{ name[0] }} {{ name[2] }} {{ name[3] }} {{ name[1] }}"

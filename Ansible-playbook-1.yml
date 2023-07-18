@@ -1,0 +1,33 @@
+---
+- name: sampleplay
+  hosts: all
+  become: true
+  become_method: sudo
+  vars:
+   name: siva
+  tasks:
+    - name: Copying the files
+      copy:
+        src=/home/ansadmin/example3
+        dest=/home/ansadmin/
+    - name: Install git
+      yum: name=git state=present
+    - name: display
+      debug:
+        msg="{{ name }}"
+- name: sampleplay-2
+  hosts: all
+  become: true
+  become_method: sudo
+  vars:
+   name: mahesh
+  tasks:
+    - name: Copying the files
+      copy:
+        src=/home/ansadmin/example4
+        dest=/home/ansadmin/
+    - name: Install python
+      yum: name=python state=present
+    - name: display
+      debug:
+        msg="{{ name }}"
