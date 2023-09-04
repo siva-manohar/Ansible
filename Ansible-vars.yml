@@ -24,4 +24,4 @@
   tasks:
     - name: display variables
       debug: 
-        msg="{{ name[0] }} {{ name[2] }} {{ name[3] }} {{ name[1] }}"
+        msg="{{ name[0] }} {{ name[2] }} {{ name[3] }} {{ name[1] }} {{lastname}}"
